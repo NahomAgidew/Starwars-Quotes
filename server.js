@@ -3,8 +3,9 @@ const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient
 
 const app = express();
+const db_url = 'mongodb://<username>:<password>@ds147920.mlab.com:47920/<dbname>';
 var db;
-MongoClient.connect('mongodb://<username>:<password>@ds147920.mlab.com:47920/star-wars-quotes', (err, database) => {
+MongoClient.connect(db_url, (err, database) => {
     if(err){
         return console.log(err);
     }
